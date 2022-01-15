@@ -56,7 +56,8 @@ function showNews() {
     xhr.send();
 }
 
-let srch = document.querySelector("#search");
+let srch = document.querySelector("#searchBox");
+console.log(srch.innerHTML);
 srch.addEventListener("input", show);
 
 function show() {
@@ -89,7 +90,7 @@ function show() {
             let cN = JSON.parse(this.responseText);
             let comingNews = cN.articles;
             let news = ``;
-            let txt = document.querySelector("#search").value;
+            let txt = document.querySelector("#searchBox").value;
             txt=txt.toLowerCase();
             for (let i = 0; i < comingNews.length; i++) {
                 if (comingNews[i].description.toLowerCase().includes(txt) == true) {
@@ -106,7 +107,7 @@ function show() {
           </div>`;
                 }
                 else
-                    console.log(comingNews[i].description + " " + txt);
+                    // console.log(comingNews[i].description + " " + txt);
 
                 elem.innerHTML = news;
             }
